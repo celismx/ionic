@@ -1,7 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>intro</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content> </ion-content>
+<ion-content padding>
+  <ion-slides pager="true" [options]="slideOpt">
+    <ion-slide *ngFor="let slide of slides">
+      <ion-icon name="close" (click)="finish()"></ion-icon>
+      <img src="assets/img/logo.png" alt="Platzi Music Logo" />
+      <h1>{{ slide.title }}</h1>
+      <h2>{{ slide.subTitle }}</h2>
+      <p>
+        {{ slide.description }}
+      </p>
+      <ion-icon name="{{ slide.icon }}"></ion-icon>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
