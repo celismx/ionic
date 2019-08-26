@@ -1,0 +1,7 @@
+{
+  "appId": "platzi.music.com",
+  "appName": "Platzi Music",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
