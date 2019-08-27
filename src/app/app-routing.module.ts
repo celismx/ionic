@@ -10,7 +10,8 @@ const routes: Routes = [
       import("./home/home.module").then(m => m.HomePageModule),
     canActivate: [IntroGuard]
   },
-  { path: "intro", loadChildren: "./intro/intro.module#IntroPageModule" }
+  { path: "intro", loadChildren: "./intro/intro.module#IntroPageModule" },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
 ];
 
 @NgModule({
