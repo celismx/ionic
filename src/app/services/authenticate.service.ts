@@ -6,11 +6,12 @@ import { Storage } from "@ionic/storage";
 })
 export class AuthenticateService {
   constructor(private storage: Storage) {}
-  loginUser(credential) {
+  async loginUser(credential) {
+    const user = await this.storage.get("user");
     return new Promise((accept, reject) => {
       if (
-        credential.email == "test@test.com" &&
-        credential.password == "12345"
+        user.email == credential.email &&
+        user.password == btoa(credential.password)
       ) {
         accept("Login correcto");
       } else {
