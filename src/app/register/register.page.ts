@@ -7,6 +7,7 @@ import {
 } from "@angular/forms";
 import { AuthenticateService } from "../services/authenticate.service";
 import { NavController } from "@ionic/angular";
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: "app-register",
@@ -17,12 +18,29 @@ export class RegisterPage {
   registerForm: FormGroup;
   validation_messages = {
     email: [
-      { type: "required", message: " El email es requerido" },
-      { type: "pattern", message: "ojo! este no es un email válido" }
+      { type: "required", message: "El email es requerido" },
+      { type: "pattern", message: "Ingresa un email válido." }
     ],
     password: [
-      { type: "required", message: " El password es requerido" },
-      { type: "minlength", message: "Minimo 5 letras para el password" }
+      { type: "required", message: "La contraseña es obligatoria." },
+      {
+        type: "minlength",
+        message: "La contraseña debe tener al menos 5 caracteres."
+      }
+    ],
+    apellido: [
+      { type: "required", message: "El apellido es requerido." },
+      {
+        type: "minlength",
+        message: "El apellido debe tener mínimo tres letras."
+      }
+    ],
+    nombre: [
+      { type: "required", message: "El nombre es requerido." },
+      {
+        type: "minlength",
+        message: "El nombre debe tener mínimo tres letras."
+      }
     ]
   };
   errorMessage: string = "";
@@ -43,7 +61,23 @@ export class RegisterPage {
       password: new FormControl(
         "",
         Validators.compose([Validators.required, Validators.minLength(5)])
+      ),
+      nombre: new FormControl(
+        "",
+        Validators.compose([Validators.minLength(3), Validators.required])
+      ),
+      apellido: new FormControl(
+        "",
+        Validators.compose([Validators.minLength(3), Validators.required])
       )
     });
+  }
+  register(userData) {
+    this.authService.registerUser(userData).then(() => {
+      this.navCtrl.navigateBack("/login");
+    });
+  }
+  goToLogin() {
+    this.navCtrl.navigateBack("/login");
   }
 }
