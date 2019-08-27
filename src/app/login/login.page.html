@@ -11,9 +11,8 @@
       <ng-container *ngFor="let validation of validation_messages.email">
         <div
           *ngIf="
-            (loginForm.get('email').hasError(validation.type) &&
-              loginForm.get('email').dirty) ||
-            loginForm.get('email').touched
+            loginForm.get('email').hasError(validation.type) &&
+            (loginForm.get('email').dirty || loginForm.get('email').touched)
           "
         >
           {{ validation.message }}
@@ -28,14 +27,27 @@
       <ng-container *ngFor="let validation of validation_messages.password">
         <div
           *ngIf="
-            (loginForm.get('password').hasError(validation.type) &&
-              loginForm.get('password').dirty) ||
-            loginForm.get('password').touched
+            loginForm.get('password').hasError(validation.type) &&
+            (loginForm.get('password').dirty ||
+              loginForm.get('password').touched)
           "
         >
           {{ validation.message }}
         </div>
       </ng-container>
     </div>
+    <ion-button
+      expand="full"
+      shape="round"
+      color="success"
+      [disabled]="!loginForm.valid"
+      type="submit"
+      >Login !</ion-button
+    >
   </form>
 </ion-content>
+<ion-footer text-center>
+  <ion-button expand="full" shape="round" fill="outline" color="success"
+    >Click para registrar</ion-button
+  >
+</ion-footer>
