@@ -34,3 +34,11 @@
     </ion-slide>
   </ion-slides>
 </ion-content>
+<ion-footer>
+  <ion-text color="danger" *ngIf="!song.name">
+    <h2>Aquí aparecerá nuestra canción</h2>
+  </ion-text>
+  <ion-text color="primary" *ngIf="song.name">
+    <h2>{{ song.name }}</h2>
+  </ion-text>
+</ion-footer>

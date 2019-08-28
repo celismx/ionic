@@ -18,6 +18,7 @@ export class HomePage {
   songs: any[] = [];
   albums: any[] = [];
   artists: any[] = [];
+  song = {};
   constructor(
     private musicService: PlatziMusicService,
     private modalController: ModalController
@@ -44,6 +45,11 @@ export class HomePage {
         artist: artist.name
       }
     });
+
+    modal.onDidDismiss().then(dataRetuned => {
+      this.song = dataRetuned.data;
+    });
+
     return await modal.present();
   }
 }
