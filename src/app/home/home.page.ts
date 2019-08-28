@@ -7,7 +7,6 @@ import { PlatziMusicService } from "../services/platzi-music.service";
   styleUrls: ["home.page.scss"]
 })
 export class HomePage {
-  artists = [{}, {}, {}, {}, {}, {}, {}, {}];
   slideOps = {
     initialSlide: 2,
     slidesPerView: 4,
@@ -16,11 +15,13 @@ export class HomePage {
   };
   songs: any[] = [];
   albums: any[] = [];
+  artists: any[] = [];
   constructor(private musicService: PlatziMusicService) {}
 
   ionViewDidEnter() {
     this.musicService.getNewReleases().then(newReleases => {
-      this.artists = newReleases.albums.items;
+      this.artists = this.musicService.getArtists();
+      console.log(this.artists);
       this.songs = newReleases.albums.items.filter(
         e => e.album_type == "single"
       );
