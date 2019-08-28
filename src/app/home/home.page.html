@@ -6,5 +6,31 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <h1>Este es el home y esta vacío</h1>
+  <h1>Artistas</h1>
+  <ion-slides [options]="slideOps" *ngIf="artists.length">
+    <ion-slide *ngFor="let artstis of artists">
+      <ion-avatar>
+        <img src="https://via.placeholder.com/150" />
+        <span>artista</span>
+      </ion-avatar>
+    </ion-slide>
+  </ion-slides>
+  <h1>Artistas</h1>
+  <ion-slides [options]="slideOps" *ngIf="artists.length">
+    <ion-slide *ngFor="let artstis of artists">
+      <ion-avatar>
+        <img src="https://via.placeholder.com/150" />
+        <span>artista</span>
+      </ion-avatar>
+    </ion-slide>
+  </ion-slides>
+  <h1>Artistas</h1>
+  <ion-slides [options]="slideOps" *ngIf="artists.length">
+    <ion-slide *ngFor="let artstis of artists">
+      <ion-avatar>
+        <img src="https://via.placeholder.com/150" />
+        <span>artista</span>
+      </ion-avatar>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
