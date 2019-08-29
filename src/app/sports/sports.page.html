@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>sports</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <agm-map
+    *ngIf="currentCenter"
+    [latitude]="currentCenter.lat"
+    [longitude]="currentCenter.lng"
+    [zoom]="defaultZoon"
+  >
+    <agm-marker
+      [latitude]="currentCenter.lat"
+      [longitude]="currentCenter.lng"
+      iconUrl="assets/img/bicycle.png"
+    >
+    </agm-marker>
+    <agm-polyline [strokeColor]="'red'" *ngIf="coordinates">
+      <agm-polyline-point
+        *ngFor="let coords of coordinates"
+        [latitude]="coords.lat"
+        [longitude]="coords.lng"
+      >
+      </agm-polyline-point>
+    </agm-polyline>
+  </agm-map>
 </ion-content>

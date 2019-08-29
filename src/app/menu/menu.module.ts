@@ -23,7 +23,7 @@ const routes: Routes = [
       },
       {
         path: "sports",
-        loadChildren: "./sports/sports.module#SportsPageModule"
+        loadChildren: "../sports/sports.module#SportsPageModule"
       },
       {
         path: "",
