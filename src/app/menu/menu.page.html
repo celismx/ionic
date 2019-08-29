@@ -12,8 +12,8 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item>Home</ion-item>
-        <ion-item>Sports</ion-item>
+        <ion-item (click)="goToHome()">Home</ion-item>
+        <ion-item (click)="goToSports()">Sports</ion-item>
         <ion-item (click)="goToSettings()">Settings</ion-item>
         <ion-item (click)="logout()">
           <ion-icon name="log-out" color="primary" slot="start"></ion-icon>

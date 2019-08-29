@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: "../settings/settings.module#SettingsPageModule"
       },
       {
+        path: "sports",
+        loadChildren: "./sports/sports.module#SportsPageModule"
+      },
+      {
         path: "",
         redirectTo: "home",
         pathMatch: "full"
