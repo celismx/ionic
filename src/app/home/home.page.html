@@ -36,12 +36,12 @@
 </ion-content>
 <ion-footer>
   <ion-grid>
-    <ion-row>
+    <ion-row *ngIf="currentSong">
       <ion-col class="ion-text-start">{{
-        parseTime(currentSong.currentTime) || "0:00"
+        parseTime(currentSong.currentTime) || "00:00"
       }}</ion-col>
       <ion-col class="ion-text-end">{{
-        parseTime(currentSong.duration) || "0:00"
+        parseTime(currentSong.duration) || "00:00"
       }}</ion-col>
     </ion-row>
   </ion-grid>

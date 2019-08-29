@@ -4,7 +4,7 @@ import { IntroGuard } from "./guards/intro.guard";
 import { LoginGuard } from "./guards/login.guard";
 
 const routes: Routes = [
-  { path: "", redirectTo: "menu/home", pathMatch: "full" },
+  { path: "", redirectTo: "menu", pathMatch: "full" },
   { path: "intro", loadChildren: "./intro/intro.module#IntroPageModule" },
   { path: "login", loadChildren: "./login/login.module#LoginPageModule" },
   {
